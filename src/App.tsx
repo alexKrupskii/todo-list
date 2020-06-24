@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './App.scss';
 import {Todolist} from './Todolist';
 import {v1} from "uuid";
 
@@ -39,15 +39,25 @@ if (filter === "active") {
 if (filter === "complited") {
     tasksForTodolist = tasks.filter(t => t.isDone === false);
 }
+
+function changeStatus (id: string, isDone: boolean) {
+    let task = tasks.find(t => t.id === id);
+    if (task) {
+        task.isDone = isDone;
+        setTasks([...tasks])
+    }
+}
     
     return (
         <div className="App">
-            <Todolist 
+            <Todolist
             title="What to learn" 
             tasks={tasksForTodolist} 
             removeTask={removeTask} 
             changeFilter={changeFilter}
             addTask={addTask}
+            changeStatus={changeStatus}
+            filter={filter}
             />
         </div>
     )
