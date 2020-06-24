@@ -3,7 +3,6 @@ import './App.css';
 import {Todolist} from './Todolist';
 import {v1} from "uuid";
 
-
 export type FilterValuesType = "all" | "complited" | "active" 
 
 function App() {
@@ -34,7 +33,7 @@ function changeFilter (value: FilterValuesType) {
 let tasksForTodolist = tasks;
 
 if (filter === "active") {
-    tasksForTodolist = tasks.filter(t => t.isDone === true);
+    tasksForTodolist = tasks.filter(t => t.isDone);
 }
 
 if (filter === "complited") {
