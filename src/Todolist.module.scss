@@ -1,15 +1,24 @@
 .todoList {
+    h3 {}
+    .inputTask {
+        .error {
+            border: red 1px solid;
+        }
+        button {}
+    }
+    ul {
+        .isDone {
+            opacity: 0.5;
+        }
+    }
+    .buttons {
+        .activLink {
+            background-color: aquamarine;
+        }
+    }
+}
 
-  .error {
-    border: red 1px solid;
-  }
-  .errorMessage {
+
+.errorMessage {
     color: red;
-  }
-  .activeFilter {
-    background-color: aquamarine;
-  }
-  .isDone {
-    opacity: 0.5;
-  }
 }
