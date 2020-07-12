@@ -1,10 +1,9 @@
 .todoList {
     h3 {}
     .inputTask {
-        .error {
-            border: red 1px solid;
+        button {
+           
         }
-        button {}
     }
     ul {
         .isDone {
@@ -21,4 +20,8 @@
 
 .errorMessage {
     color: red;
+}
+
+.error {
+    border: red 1px solid;
 }
