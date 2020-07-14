@@ -1,4 +1,4 @@
-import React, {useState, ChangeEvent, KeyboardEvent} from 'react';
+import React, {ChangeEvent} from 'react';
 import {FilterValuesType, TaskType} from './App';
 import style from './Todolist.module.scss';
 import AddItemForm from './AddItemForm';
@@ -28,30 +28,30 @@ const addTask = (title: string) => {
 
 const removeTodoList = () => {
     props.removeTodoList(props.id)
-}
+};
 
 const changeTodolistTitle = (newTitle: string) => {
     props.changeTodolistTitle(props.id, newTitle)
-}
+};
 
 const onAllClickHandler = () => props.changeFilter(props.id, "all")
-const onActiveClickHandler = () => props.changeFilter(props.id, "active")
-const onComplitedClickHandler = () => props.changeFilter(props.id, "complited")
+const onActiveClickHandler = () => props.changeFilter(props.id, "active");
+const onComplitedClickHandler = () => props.changeFilter(props.id, "completed");
 
     return <div className={style.todoList}>
         <h3><EditableSpan value={props.title} onChange={changeTodolistTitle}/>
         <IconButton onClick={removeTodoList}><Delete/></IconButton></h3>
         <AddItemForm addItem={addTask}/>
-        <div>
+        <div className={style.task}>
             {
                 props.tasks.map( t => {
-                const onClickHandler = () => props.removeTask(t.id, props.id)
+                const onClickHandler = () => props.removeTask(t.id, props.id);
                 const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
                     props.changeTaskStatus(t.id, e.currentTarget.checked, props.id)
-                }
+                };
                 const onChangeTaskTitle = (title: string) => {
                     props.changeTitle(t.id, title, props.id)
-                }
+                };
                 return <div key={t.id} className={t.isDone ? style.isDone : ''}>
                        <Checkbox onChange={onChangeHandler} checked={t.isDone}/> 
                        <EditableSpan value={t.title} onChange={onChangeTaskTitle}/>
@@ -65,7 +65,7 @@ const onComplitedClickHandler = () => props.changeFilter(props.id, "complited")
                     onClick={onAllClickHandler}>All</Button>
             <Button color={"primary"} variant={props.filter === 'active' ? 'contained' : 'text'} 
                     onClick={onActiveClickHandler}>Active</Button>
-            <Button color={"secondary"} variant={props.filter === 'complited' ? 'contained' : 'text'} 
+            <Button color={"secondary"} variant={props.filter === 'completed' ? 'contained' : 'text'}
                     onClick={onComplitedClickHandler}>Completed</Button>
         </div>
     </div>
