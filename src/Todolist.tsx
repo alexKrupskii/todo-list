@@ -1,5 +1,5 @@
 import React, {ChangeEvent} from 'react';
-import {FilterValuesType, TaskType} from './App';
+import {FilterValuesType, TaskType} from './AppWithReducers';
 import style from './Todolist.module.scss';
 import AddItemForm from './AddItemForm';
 import EditableSpan from './EditableSpan';
