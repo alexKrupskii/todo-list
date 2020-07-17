@@ -26,7 +26,9 @@ function AddItemForm(props: AddItemFormPropsType) {
     }
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
-        setError(null);
+        if (error !== null) {
+            setError(null);
+        }
         if (e.charCode === 13) {
             addItem();
         }
