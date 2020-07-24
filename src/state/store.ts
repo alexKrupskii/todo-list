@@ -3,7 +3,7 @@ import {todolistsReducer} from "./todolists-reducer";
 import {tasksReducer} from "./tasks-reducer";
 
 
-const rootReduser = combineReducers({
+const rootReducer = combineReducers({
     todolists: todolistsReducer,
     tasks: tasksReducer
 });
@@ -13,10 +13,10 @@ const rootReduser = combineReducers({
 //     tasks: TasksStateType
 // }
 
-export type AppRootState = ReturnType<typeof rootReduser>
+export type AppRootState = ReturnType<typeof rootReducer>
 
 
-export const store = createStore(rootReduser);
+export const store = createStore(rootReducer);
 
 
 

@@ -6,7 +6,7 @@ import {
     todolistsReducer
 } from './todolists-reducer';
 import {v1} from 'uuid';
-import {FilterValuesType, TodoListType} from '../AppWithReducers';
+import {FilterValuesType, TodoListType} from '../AppWithRedux';
 
 test('correct todolist should be removed', () => {
     let todoLIstID1 = v1();

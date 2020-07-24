@@ -7,7 +7,7 @@ type AddItemFormPropsType = {
     addItem: (title: string) => void
 }
 
-function AddItemForm(props: AddItemFormPropsType) {
+export const AddItemForm = React.memo( (props: AddItemFormPropsType) => {
 
     let [title, setTitle] = useState('');
     let [error, setError] = useState<string | null>(null);
@@ -19,11 +19,11 @@ function AddItemForm(props: AddItemFormPropsType) {
         } else {
             setError('Title is Required');
         }
-    }
+    };
 
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.currentTarget.value)
-    }
+    };
 
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         if (error !== null) {
@@ -32,7 +32,7 @@ function AddItemForm(props: AddItemFormPropsType) {
         if (e.charCode === 13) {
             addItem();
         }
-    }
+    };
 
     return <div>
         <TextField variant="outlined" label="Input value" className={error ? style.error : ''}
@@ -43,6 +43,5 @@ function AddItemForm(props: AddItemFormPropsType) {
             helperText={error} />
         <IconButton className={style.button} onClick={addItem} color={"primary"}><ControlPoint/></IconButton>
     </div>
-}
+});
 
-export default AddItemForm;
